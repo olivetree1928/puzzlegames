@@ -233,8 +233,77 @@ export const SnakeGame = ({ onBack }: SnakeGameProps) => {
             </div>
           </div>
 
-          <div className="text-center text-slate-600">
-            <p className="mb-2">Use arrow keys to control the snake</p>
+          {/* 移动设备控制器 */}
+          <div className="md:hidden mt-8">
+            <div className="grid grid-cols-3 gap-2 max-w-[200px] mx-auto">
+              {/* 上按钮 */}
+              <div className="col-start-2">
+                <button
+                  className="w-16 h-16 bg-blue-500 rounded-lg shadow-lg active:bg-blue-600 flex items-center justify-center"
+                  onClick={() => direction !== 'DOWN' && setDirection('UP')}
+                >
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                  </svg>
+                </button>
+              </div>
+              {/* 左按钮 */}
+              <div className="col-start-1 row-start-2">
+                <button
+                  className="w-16 h-16 bg-blue-500 rounded-lg shadow-lg active:bg-blue-600 flex items-center justify-center"
+                  onClick={() => direction !== 'RIGHT' && setDirection('LEFT')}
+                >
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+              </div>
+              {/* 暂停按钮 */}
+              <div className="col-start-2 row-start-2">
+                <button
+                  className="w-16 h-16 bg-gray-500 rounded-lg shadow-lg active:bg-gray-600 flex items-center justify-center"
+                  onClick={() => setIsPaused(p => !p)}
+                >
+                  {isPaused ? (
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  ) : (
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  )}
+                </button>
+              </div>
+              {/* 右按钮 */}
+              <div className="col-start-3 row-start-2">
+                <button
+                  className="w-16 h-16 bg-blue-500 rounded-lg shadow-lg active:bg-blue-600 flex items-center justify-center"
+                  onClick={() => direction !== 'LEFT' && setDirection('RIGHT')}
+                >
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+              {/* 下按钮 */}
+              <div className="col-start-2 row-start-3">
+                <button
+                  className="w-16 h-16 bg-blue-500 rounded-lg shadow-lg active:bg-blue-600 flex items-center justify-center"
+                  onClick={() => direction !== 'UP' && setDirection('DOWN')}
+                >
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* 桌面端控制说明 */}
+          <div className="hidden md:block text-center text-slate-600 mt-6">
+            <p className="mb-2">{getTranslation('useArrowKeys', language)}</p>
             <p>Press SPACE to {isPaused ? getTranslation('resume', language) : getTranslation('pause', language)}</p>
           </div>
         </div>

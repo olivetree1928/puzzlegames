@@ -57,6 +57,14 @@ export const translations: Translations = {
     de: 'Sehr Schnell',
     ja: '超速い'
   },
+  useArrowKeys: {
+    en: 'Use arrow keys to control the snake',
+    zh: '使用方向键控制蛇的移动',
+    es: 'Usa las flechas para controlar la serpiente',
+    fr: 'Utilisez les flèches pour contrôler le serpent',
+    de: 'Benutzen Sie die Pfeiltasten um die Schlange zu steuern',
+    ja: '矢印キーでヘビを操作'
+  },
   allGames: {
     en: 'All Games',
     zh: '全部游戏',
