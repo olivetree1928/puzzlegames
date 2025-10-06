@@ -17,6 +17,46 @@ export const translations: Translations = {
     de: 'Spielen Sie mehrere kostenlose Puzzle-Spiele',
     ja: '複数の無料パズルゲームを楽しもう'
   },
+  speed: {
+    en: 'Speed',
+    zh: '速度',
+    es: 'Velocidad',
+    fr: 'Vitesse',
+    de: 'Geschwindigkeit',
+    ja: 'スピード'
+  },
+  slow: {
+    en: 'Slow',
+    zh: '慢速',
+    es: 'Lento',
+    fr: 'Lent',
+    de: 'Langsam',
+    ja: '遅い'
+  },
+  normal: {
+    en: 'Normal',
+    zh: '正常',
+    es: 'Normal',
+    fr: 'Normal',
+    de: 'Normal',
+    ja: '普通'
+  },
+  fast: {
+    en: 'Fast',
+    zh: '快速',
+    es: 'Rápido',
+    fr: 'Rapide',
+    de: 'Schnell',
+    ja: '速い'
+  },
+  superFast: {
+    en: 'Super Fast',
+    zh: '超快',
+    es: 'Super Rápido',
+    fr: 'Très Rapide',
+    de: 'Sehr Schnell',
+    ja: '超速い'
+  },
   allGames: {
     en: 'All Games',
     zh: '全部游戏',
