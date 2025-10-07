@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { LanguageProvider } from './context/LanguageContext';
+import { ThemeProvider } from './context/ThemeContext';
 import { LanguageSelector } from './components/LanguageSelector';
+import { ThemeToggle } from './components/ThemeToggle';
 import { CategoryFilter } from './components/CategoryFilter';
 import { GameCard } from './components/GameCard';
 import { SnakeGame } from './games/SnakeGame';
@@ -43,21 +45,24 @@ function GamePortal() {
   if (currentGame === 'numberpuzzle') return <NumberPuzzleGame onBack={() => setCurrentGame(null)} />;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 flex flex-col transition-colors">
       <div className="container mx-auto px-4 py-8 flex-grow">
         <div className="flex justify-between items-center mb-12">
           <div className="flex items-center gap-4">
-            <Gamepad2 className="w-12 h-12 text-blue-600" />
+            <Gamepad2 className="w-12 h-12 text-blue-600 dark:text-blue-400" />
             <div>
-              <h1 className="text-4xl font-bold text-slate-800">
+              <h1 className="text-4xl font-bold text-slate-800 dark:text-white">
                 {getTranslation('title', language)}
               </h1>
-              <p className="text-lg text-slate-600 mt-1">
+              <p className="text-lg text-slate-600 dark:text-slate-300 mt-1">
                 {getTranslation('subtitle', language)}
               </p>
             </div>
           </div>
-          <LanguageSelector />
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
+            <LanguageSelector />
+          </div>
         </div>
 
         <CategoryFilter
@@ -94,9 +99,11 @@ function GamePortal() {
 
 function App() {
   return (
-    <LanguageProvider>
-      <GamePortal />
-    </LanguageProvider>
+    <ThemeProvider>
+      <LanguageProvider>
+        <GamePortal />
+      </LanguageProvider>
+    </ThemeProvider>
   );
 }
 
